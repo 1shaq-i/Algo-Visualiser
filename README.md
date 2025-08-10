@@ -18,17 +18,10 @@ A clean, interactive web application for visualising data structures and algorit
 ## Getting Started
 
 ### 1. Clone the repository
-```bash
-git clone https://github.com/your-username/algorithms-visualiser.git
-cd algorithms-visualiser
-```
+Use your preffered way of cloning
 
 ### 2. Open in browser
 Just open `index.html` in your preferred browser — no build step required.
-
-### 3. Deploy to Netlify
-- Drag and drop the project folder into [Netlify Drop](https://app.netlify.com/drop), **or**
-- Push to GitHub and connect the repo to Netlify.
 
 ## File Structure
 ```
