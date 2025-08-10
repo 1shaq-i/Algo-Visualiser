@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Algorithms Visualiser — Zoom & Extra Algorithms</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="panel left">
+      <div class="toolbar">
+        <h1>Algorithms Visualiser</h1>
+        <span class="badge" id="status">Ready</span>
+      </div>
+
+      <div class="group">
+        <label for="structure">Data structure</label>
+        <select id="structure" class="select">
+          <option>Stack</option>
+          <option>Queue</option>
+          <option>Linked List</option>
+          <option selected>Binary Tree</option>
+        </select>
+      </div>
+
+      <div class="group">
+        <label for="values">Values (comma / space separated)</label>
+        <div class="row">
+          <input id="values" class="input grow" placeholder="e.g. 5, 3, 1, 3, 6" />
+          <button class="btn" id="btn-load">Load</button>
+        </div>
+        <div class="row wrap">
+          <button class="btn secondary" id="btn-add">Add</button>
+          <button class="btn secondary" id="btn-remove">Remove</button>
+          <button class="btn ghost" id="btn-clear">Clear</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <label>Traversal / Search</label>
+        <div class="row wrap">
+          <select id="algo" class="select grow">
+            <optgroup label="Tree">
+              <option value="bfs">BFS (level-order)</option>
+              <option value="dfs-pre">DFS Preorder</option>
+              <option value="dfs-in">DFS Inorder</option>
+              <option value="dfs-post">DFS Postorder</option>
+            </optgroup>
+            <optgroup label="Linear (Stack/Queue/List)">
+              <option value="lin">Linear Search</option>
+              <option value="bin">Binary Search (sorted)</option>
+            </optgroup>
+          </select>
+          <input id="target" class="input" placeholder="Target (optional)" />
+        </div>
+        <div class="row wrap">
+          <button class="btn" id="btn-run">Run</button>
+          <button class="btn secondary" id="btn-step">Step</button>
+          <button class="btn secondary" id="btn-reset">Reset</button>
+          <button class="btn warn" id="btn-stop">Stop</button>
+        </div>
+      </div>
+
+      <div class="legend">
+        <span class="pill">Visited</span>
+        <span class="pill" style="border-color:#1f5f53;background:#0a2a27">Target</span>
+        <span class="pill muted">Edges are level connections</span>
+      </div>
+      <div class="grow"></div>
+      <div class="small muted">Tip: Binary Tree builds level-order. Linear search works on Stack/Queue/List; Binary search assumes numeric, shows a sorted view.</div>
+    </aside>
+
+    <main class="panel right">
+      <div class="row" style="justify-content:flex-end; gap:8px; padding:0 6px;">
+        <button class="btn secondary" id="zoomOut" title="Zoom out">–</button>
+        <button class="btn secondary" id="zoomReset" title="Reset zoom">100%</button>
+        <button class="btn secondary" id="zoomIn" title="Zoom in">+</button>
+      </div>
+      <div class="viz-wrapper" id="vizWrapper">
+        <div id="zoom" style="--scale:1; transform:scale(var(--scale)); transform-origin:0 0;">
+          <div id="viz" class="viz"><!-- dynamic content injected here --></div>
+        </div>
+      </div>
+      <div class="footer small muted">
+        <div>Drag to pan. Ctrl/⌘ + scroll to zoom. Animations are simple and clear.</div>
+        <div>
+          <span class="badge">Speed: <span id="speedLabel">1×</span></span>
+          <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1" />
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
